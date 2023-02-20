@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.main {
+    height: 500px;
+}
+
+.main .main_img {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+}
+
+.container .content1 {
+    height: auto;
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.container .content1 .icons {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.container .content1 .icons .boxs {
+    height: 100%;
+    width: 25%;
+    display: flex;
+}
+
+.container .content1 .icons .boxs .box1 {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .content1 .icons .boxs .box2 {
+    height: 100%;
+    width: 70%;
+    padding-top: 20px;
+}
+
+.container .about {
+    height: auto;
+    margin-top: 20px;
+}
+
+.container .content2 {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .content2 .contain {
+    height: 80%;
+    width: 90%;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container .content2 .contain .price {
+    display: flex;
+}
+
+.container .content2 .contain .extrafacility {
+    height: 150px;
+}
+
+.container .content2 .contain .extrafacility .box {
+    height: 50%;
+    display: flex;
+}
+
+.container .content2 .contain .extrafacility .box .box1 {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.container .content2 .contain .extrafacility .box .box2 {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .content2 .contain .extrafacility button {
+    height: 50px;
+    width: 90%;
+    margin-left: 5%;
+    border: none;
+    background-color: #de5824;
+    border-radius: 10px;
+    color: white;
+}
+
+.reviews {
+    height: auto;
+    margin-top: 20px;
+}
+
+.rating {
+    width: 140px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    padding: 5px;
+    overflow: hidden;
+}
+.rating__star {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: #de5824;
+    transition: filter linear .3s;
+}
+.reviews .forms{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reviews .forms form{
+    width: 50%;
+}
+.reviews .forms form .rating{
+    text-align: center;
+}
+.reviews .all_reviews{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.reviews .all_reviews .my_review{
+    height: auto;
+    width: 55%;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.reviews .all_reviews .my_review .header{
+    height: 60px;
+    display: flex;
+}
+.reviews .all_reviews .my_review .header .box1{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reviews .all_reviews .my_review .header .box2{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+.reviews .all_reviews .my_review .footer{
+    height: auto;
+}
+.reviews .all_reviews .my_review .footer .ratings{
+    height: 50px;
+}
+.reviews .all_reviews .my_review .footer .text-content{
+    height: auto;
+}

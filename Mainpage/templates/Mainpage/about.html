@@ -1,0 +1,71 @@
+{% extends 'Mainpage/basic.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}
+    About - invinsible
+    {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <style>
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    {% if messages %}
+    <ul class="messages" id="message">
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+          {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="main">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>Who we are & where do we stand
+            </p>
+        </div>
+    </div>
+    <div class="container">
+        <h4 style="color: #de5824;">Vision</h4>
+        <p>Keeping the core values and the ethics in center, INVINCIBLE – the NGO will be a benchmark in training the
+            youth for a better situation. The NGO will work for enhancement of all good qualities in the modern youth
+            with a brighter way…
+        </p>
+        <h4 style="color: #de5824;">Mission</h4>
+        <p>The motive of the NGO is to moderate the young thinking for a happy and developed world. The youth become
+            responsible and understand their own need for the society and country is the heart value of the mission…
+        </p>
+        <h4 style="color: #de5824;">Objectives</h4>
+        <p>The idea of establishing NGO came up during the various activities with other NGOs as a part of collaboration
+            with NSS/NCC in college activities. It was a very clear view behind the organization that it will be for
+            young people and specially students development activities will be given priority.
+
+            Keeping the ethics and value system in center, the NGO has thought for such activities, which will fill
+            valuable qualities in the youth. NGO is thankful to all the young students of various colleges who are
+            voluntarily giving a boost to the activities. For spreading awareness in the field of adventure, NGO has
+            planned some very charming events as per regular basis.
+        </p>
+    </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% block script %}
+
+{% endblock %}

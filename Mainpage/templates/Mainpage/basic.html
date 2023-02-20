@@ -1,0 +1,526 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %} {% endblock %}</title>
+  <script src="https://kit.fontawesome.com/6e04d39f81.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <style>
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    .messages{
+      position: absolute;
+      z-index: 11;
+      margin-top: 100px;
+      width: 96%;
+    }
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    header {
+      height: 100px;
+      width: 100%;
+      overflow: hidden;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      display: flex;
+      font-family: 'Rubik', sans-serif;
+      flex-wrap: wrap;
+      z-index: 10;
+      transition-duration: 2s;
+      position: fixed;
+    }
+
+    header:hover {
+      background-color: #b0d6e9;
+    }
+
+    header .logo {
+      height: 100px;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      color: white;
+    }
+
+    header .logo img {
+      height: 100%;
+      width: 30%;
+    }
+
+    header .navbar {
+      height: 100px;
+      width: 70%;
+      display: flex;
+      align-items: center;
+    }
+
+    header .navbar ul {
+      display: flex;
+      align-items: center;
+    }
+
+    header .navbar ul li {
+      list-style: none;
+      display: inline-block;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    header .navbar ul li a {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+    }
+
+    header .navbar .nav2 ul li button {
+      height: 50px;
+      width: 90px;
+      background-color: transparent;
+      border-radius: 10px;
+    }
+
+    header .navbar .nav2 ul li .userbutton {
+      width: auto;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    header .navbar .nav2 ul li button a {
+      color: black;
+    }
+
+    .menu {
+      display: inline-block;
+      cursor: pointer;
+      padding: 30px;
+      position: static;
+      display: none;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: black;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .change .bar1 {
+      transform: translate(0, 11px) rotate(-45deg);
+    }
+
+    .change .bar2 {
+      opacity: 0;
+    }
+
+    .change .bar3 {
+      transform: translate(0, -11px) rotate(45deg);
+    }
+
+    footer {
+      height: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #b0d6e9;
+    }
+
+    footer .part1 {
+      height: 90%;
+      width: 50%;
+      padding: 10px;
+    }
+
+    footer .part1 .logo {
+      height: 30%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer .part1 .logo img {
+      height: 100%;
+      width: 50%;
+    }
+
+    footer .part1 .content {
+      padding: 40px;
+    }
+
+    footer .part1 .socialmedia {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    footer .part1 .socialmedia a {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      padding: 20px;
+    }
+
+    footer .part1 .socialmedia a:hover {
+      color: gray;
+    }
+
+    footer .part2 {
+      height: 90%;
+      width: 50%;
+      padding: 50px;
+    }
+
+    footer .part3 {
+      height: 10%;
+      width: 100%;
+    }
+
+    footer .part3 .copyright {
+      text-align: center;
+    }
+
+    @media screen and (max-width : 1005px) {
+      .menu {
+        display: block;
+      }
+
+      header {
+        height: 100px;
+      }
+
+      header .navbar {
+        justify-content: end;
+        animation-duration: 1s;
+      }
+
+      header .navbar .nav1 {
+        display: none;
+      }
+
+      header .navbar .nav2 {
+        display: none;
+      }
+
+      header .dropdownmenu .nav1 {
+        height: 70%;
+      }
+
+      header .dropdownmenu .nav2 {
+        margin-top: 0;
+      }
+
+      header .dropdownmenu {
+        height: 400px;
+        width: 100%;
+        animation-duration: 1s;
+      }
+
+      header .dropdownmenu ul {
+        padding: 20px;
+        text-align: center;
+      }
+
+      header .dropdownmenu ul li {
+        list-style: none;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 10px;
+      }
+
+      header .dropdownmenu ul li a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+      }
+
+      header .dropdownmenu .nav2 ul li button {
+        height: 50px;
+        width: 90px;
+        background-color: white;
+        border-radius: 10px;
+      }
+
+      header .dropdownmenu .nav2 ul li .userbutton {
+        width: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      header .dropdownmenu .nav2 ul li button a {
+        color: black;
+      }
+
+      .change-dropdown {
+        height: 500px;
+      }
+    }
+
+    @media screen and (max-width: 950px) {
+      header .logo {
+        width: 35%;
+      }
+
+      header .navbar {
+        width: 65%;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      header .logo {
+        width: 45%;
+      }
+
+      header .navbar {
+        width: 55%;
+      }
+    }
+
+    @media screen and (max-width : 600px) {
+      header .logo {
+        width: 50%;
+      }
+
+      header .navbar {
+        width: 50%;
+      }
+    }
+
+    @media screen and (max-width : 500px) {
+      header .logo {
+        width: 70%;
+      }
+
+      header .navbar {
+        width: 30%;
+      }
+    }
+
+    @media screen and (max-width : 400px) {
+      header .logo {
+        width: 70%;
+      }
+
+      header .navbar {
+        width: 30%;
+      }
+    }
+
+    @media screen and (max-width:768px) {
+
+      footer {
+        height: 450px;
+      }
+    }
+
+    @media screen and (max-width:670px) {
+      footer {
+        height: 800px;
+      }
+
+      footer .part1 {
+        height: 45%;
+        width: 100%;
+      }
+
+      footer .part2 {
+        height: 45%;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      footer {
+        height: 900px;
+      }
+    }
+
+    @media screen and (max-width: 350px) {
+      footer {
+        height: 1000px;
+      }
+    }
+  </style>
+  {% block style %}
+  {% endblock %}
+</head>
+
+<body>
+  <header id="dropdownmenu">
+    <div class="logo"><img src="{% static 'images/logo.svg' %}" alt=""></div>
+    <div class="navbar">
+      <div class="nav1">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/events/">Event</a>
+          </li>
+          <li>
+            <a href="/team/">Team</a>
+          </li>
+          <li>
+            <a href="/contact/">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav2">
+        <ul>
+          <li>
+            {% if user.is_authenticated %}
+            <a href="/profile/">
+              <button class="userbutton">
+                <i style='font-size:24px' class='fas'>&#xf406;</i>
+                {{user.first_name}}
+              </button>
+            </a>
+            {% else %}
+            <a href="/login/"><button>Login</button></a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+      <div class="menu" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </div>
+    <div class="dropdownmenu">
+      <div class="nav1">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/events/">Event</a>
+          </li>
+          <li>
+            <a href="/team/">Team</a>
+          </li>
+          <li>
+            <a href="/contact/">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav2">
+        <ul>
+          <li>
+            {% if user.is_authenticated %}
+            <a href="/profile/">
+              <button class="userbutton">
+                <i style='font-size:24px' class='fas'>&#xf406;</i>
+                {{username}}
+              </button>
+            </a>
+            {% else %}
+            <a href="/login/"><button>Login</button></a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  {% block body %}
+  {% endblock %}
+  <footer>
+    <div class="part1">
+      <div class="logo"><img src="{% static 'images/logo1.svg' %}" alt=""></div>
+      <div class="content">
+        <h6>Invincible is a Non Government Organization, being run by young students for social reformation and
+          building the nation with moral values and ethics.</h6>
+      </div>
+      <div class="socialmedia">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        <a href="#" class="fa fa-instagram"></a>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="contact">
+        <h5>Contact</h5>
+        <h6>Ahmedabad (Head Office)</h6>
+        <p>308, University Plaza, Above Chocolate Room,
+          Vijay Cross Roads, Navrangpura,
+          Ahmedabad, Gujarat 380009
+        </p><br><br>
+        <p>Office Timings: 11AM to 8PM</p>
+        <div class="phone1" style="display: flex;">
+          <i style="font-size:24px" class="fa">&#xf095;</i>
+          <a style="text-decoration: none; color: black; margin-left: 10px;" href="tel:+919099400699"
+            class="d-block mb-1"><i class="uil uil-phone"></i> +91 9099 400 699</a>
+        </div>
+        <div class="phone2" style="display: flex;">
+          <i style="font-size:24px" class="fa">&#xf095;</i>
+          <a style="text-decoration: none; color: black; margin-left: 10px;" href="tel:+919913800699"
+            class="d-block mb-4"><i class="uil uil-phone"></i> +91 9913 800 699</a>
+        </div>
+      </div>
+    </div>
+    <div class="part3">
+      <div class="copyright">
+        © 2013-2022 Invincible. •
+        <a style="text-decoration: none; color: black;" href="/privacy" class="">Privacy Policy</a> •
+        <a style="text-decoration: none; color: black;" href="/term-and-conditions" class="">Terms and Conditions</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</body>
+
+</html>
+<script>
+  function myFunction(x) {
+    x.classList.toggle("change");
+    document.getElementById("dropdownmenu").classList.toggle("change-dropdown");
+  }
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        document.getElementById("dropdownmenu").style.background = "#b0d6e9";
+      } else {
+        document.getElementById("dropdownmenu").style.background = "transparent";
+      }
+    });
+    $('#scroll').click(function () {
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return none;
+    });
+  });
+  if(document.getElementById("message")){
+      setTimeout(() => {
+      document.getElementById("message").style.display = "none";
+    }, 2000);
+    }
+</script>
+{% block script %}
+{% endblock %}

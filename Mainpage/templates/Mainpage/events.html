@@ -1,0 +1,119 @@
+{% extends 'Mainpage/basic.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block title %}
+    Events - invinsible
+    {% endblock %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    {% block style %}
+    <link rel="stylesheet" href="{% static 'css/events.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        .main {
+            height: 300px;
+            width: 100%;
+            background-color: #de5824;
+            font-family: 'Montserrat', sans-serif;
+            border: 1px solid black;
+        }
+
+        .main .content {
+            margin-top: 150px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+        }
+        .container a button{
+            border: none;
+            outline: none;
+        }
+        .container .contain {
+            height: 250px;
+            width: 380px;
+            padding: 10px;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .container .contain .imgbox {
+            height: 70%;
+            border-radius: 10px;
+        }
+
+        .container .contain .detailbox {
+            height: 30%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        @media screen and (max-width: 400px) {
+            .container {
+                padding: 0;
+            }
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    {% if messages %}
+    <ul class="messages" id="message">
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="main">
+        <div class="content">
+            <h1>Events</h1>
+            <p>Life is either a daring adventure or nothing.</p>
+        </div>
+    </div>
+    <div class="container">
+        {% for i in Events %}
+        <div class="contain">
+            <a href="/event-detail/{{i.id}}"><button type="submit" style="border: none; background-color: white; height: 100%; width: 100%; outline: none;">
+                <div class="imgbox">
+                    <img style="height: 100%; width: 100%; border-radius: 10px;" src="/media/{{i.image}}" alt="">
+                </div>
+            <div class="detailbox">
+                <h5>{{i.package_name}}</h5>
+                <p>From ₹{{i.package_price}} | {{i.package_duration}}</p>
+            </div>
+        </button></a>
+        </div>
+    {% endfor %}
+        
+    </div>
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+{% block script %}
+
+{% endblock %}
